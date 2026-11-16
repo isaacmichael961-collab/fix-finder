@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Find trusted local handymen with FixFinder.">
+  <title>FixFinder — Get it fixed.</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="#"><span class="brand-mark">F</span> fixfinder<span class="brand-dot">.</span></a>
+    <nav><a href="#services">Services</a><a href="#how">How it works</a></nav>
+    <div class="top-actions"><button class="btn btn-quiet" id="loginOpen">Log in</button><button class="btn btn-dark" id="registerOpen">Get started <span>↗</span></button></div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <div class="eyebrow"><span class="live-dot"></span> YOUR LOCAL HELP, SORTED</div>
+        <h1>Good help.<br><span>Right around</span><br>the corner.</h1>
+        <p class="hero-lede">Find trusted people to fix, build and take care of the things that matter. No endless searching. Just the right person for the job.</p>
+        <div class="search-panel">
+          <label><span class="field-icon">⌕</span><span><small>WHAT DO YOU NEED?</small><input id="searchInput" placeholder="e.g. electrician, plumber"></span></label>
+          <label><span class="field-icon">⌖</span><span><small>YOUR AREA</small><input id="areaInput" placeholder="e.g. Wuse, Abuja"></span></label>
+          <button class="btn btn-lime" id="searchButton">Find help <span>→</span></button>
+        </div>
+        <div class="trust-line"><span class="avatars">● ● ●</span> Local pros. Real reviews. Better peace of mind.</div>
+      </div>
+      <div class="hero-art">
+        <div class="art-circle"></div>
+        <div class="hero-tag tag-top"><span class="tag-icon">✦</span><span><b>Quality help</b><small>for everyday jobs</small></span></div>
+        <div class="hero-photo"><div class="photo-overlay"></div><div class="photo-caption"><span class="status-pill"><i></i> READY TO HELP</span><h3>Your to-do list<br>just got shorter.</h3></div></div>
+        <div class="hero-tag tag-bottom"><span class="rating-star">★</span><span><b>Rated by people</b><small>in your community</small></span></div>
+        <div class="art-spark">✳</div>
+      </div>
+    </section>
+
+    <section class="services section" id="services">
+      <div class="section-heading"><div><p class="eyebrow">FIND YOUR FIX</p><h2>What needs doing?</h2></div><p>From quick repairs to bigger jobs,<br>find the right person for it.</p></div>
+      <div class="category-grid">
+        <button class="category-card" data-category="Electrician"><span class="category-icon yellow">ϟ</span><b>Electrical</b><small>Wiring, lights, faults</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Plumber"><span class="category-icon blue">≈</span><b>Plumbing</b><small>Leaks, taps, pipes</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Generator repair"><span class="category-icon orange">⚙</span><b>Generator repair</b><small>Servicing and repairs</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Carpenter"><span class="category-icon pink">⌁</span><b>Carpentry</b><small>Doors, furniture, wood</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Cleaner"><span class="category-icon green">✳</span><b>Cleaning</b><small>Home and office</small><span class="category-arrow">↗</span></button>
+        <button class="category-card" data-category="Other"><span class="category-icon purple">＋</span><b>Other services</b><small>Tell us what you need</small><span class="category-arrow">↗</span></button>
+      </div>
+    </section>
+
+    <section class="pros section" id="pros">
+      <div class="section-heading"><div><p class="eyebrow">LOCAL PROFESSIONALS</p><h2>Meet your next go-to.</h2></div><p>Compare profiles, prices and ratings<br>before you make a choice.</p></div>
+      <div id="providerResults" class="provider-grid"><div class="empty-state">Search for a service or choose a category to find available professionals.</div></div>
+    </section>
+
+    <section class="how section" id="how">
+      <p class="eyebrow">NO DRAMA. JUST DONE.</p><h2>Getting it fixed<br>is three steps simple.</h2>
+      <div class="steps"><article><span>01</span><h3>Find your pro</h3><p>Search by service and area. Compare real profiles, ratings and starting prices.</p></article><article><span>02</span><h3>Make your request</h3><p>Tell them what needs doing and where. Keep the conversation in one place.</p></article><article><span>03</span><h3>Get it sorted</h3><p>Coordinate the job, then leave a review to help the next customer.</p></article></div>
+    </section>
+
+    <section class="join-banner"><div><p class="eyebrow">ARE YOU A SKILLED PRO?</p><h2>Your skills deserve<br>to get noticed.</h2><p>Create a profile, show your work and connect with people who need your skills.</p></div><button class="btn btn-dark" id="handymanJoin">Join as a handyman <span>↗</span></button></section>
+  </main>
+
+  <footer><a class="brand" href="#"><span class="brand-mark">F</span> fixfinder<span class="brand-dot">.</span></a><span>Helping good work find good people.</span><span>© <span id="year"></span> FixFinder</span></footer>
+
+  <dialog id="authDialog" class="modal"><form id="authForm" class="modal-card"><button type="button" class="modal-close" id="modalClose" aria-label="Close">×</button><p class="eyebrow" id="authEyebrow">WELCOME TO FIXFINDER</p><h2 id="authTitle">Let's get you started.</h2><p class="modal-sub" id="authSub">Create your account to book trusted local help.</p><div id="nameField" class="form-field"><label for="name">Full name</label><input id="name" autocomplete="name" placeholder="Your name"></div><div class="form-field"><label for="email">Email address</label><input id="email" type="email" autocomplete="email" required placeholder="you@example.com"></div><div class="form-field"><label for="password">Password</label><input id="password" type="password" autocomplete="current-password" minlength="8" required placeholder="At least 8 characters"></div><div id="roleField" class="form-field"><label for="role">I want to</label><select id="role"><option value="customer">Find a handyman</option><option value="handyman">Offer handyman services</option></select></div><button class="btn btn-lime full" id="authSubmit" type="submit">Create account →</button><p class="form-message" id="authMessage" role="status"></p><p class="switch-auth"><span id="switchText">Already have an account?</span> <button type="button" id="switchAuth">Log in</button></p></form></dialog>
+
+  <dialog id="bookingDialog" class="modal"><form id="bookingForm" class="modal-card"><button type="button" class="modal-close" id="bookingClose" aria-label="Close">×</button><p class="eyebrow">SERVICE REQUEST</p><h2>Tell us what needs fixing.</h2><input id="bookingProviderId" type="hidden"><div class="form-field"><label for="serviceDate">Preferred date</label><input id="serviceDate" type="date"></div><div class="form-field"><label for="serviceAddress">Job location</label><input id="serviceAddress" required placeholder="Street, area, city"></div><div class="form-field"><label for="jobDetails">Describe the job</label><textarea id="jobDetails" required rows="4" placeholder="What needs to be repaired or installed?"></textarea></div><button class="btn btn-lime full" type="submit">Send booking request →</button><p class="form-message" id="bookingMessage" role="status"></p></form></dialog>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="/app.js"></script>
+</body>
+</html>
