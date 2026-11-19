@@ -16,10 +16,23 @@ function notify(message) {
 function headers() {
   return { "Content-Type": "application/json", ...(token ? { Authorization: `Bearer ${token}` } : {}) };
 }
+const API_BASE_URL = "https://fix-finder-x45o.onrender.com";
+
 async function api(path, options = {}) {
-  const response = await fetch(`/api${path}`, { ...options, headers: { ...headers(), ...(options.headers || {}) } });
+  const response = await fetch(`${API_BASE_URL}/api${path}`, {
+    ...options,
+    headers: {
+      ...headers(),
+      ...(options.headers || {})
+    }
+  });
+
   const data = await response.json().catch(() => ({}));
-  if (!response.ok) throw new Error(data.error || "Request failed. Please try again.");
+
+  if (!response.ok) {
+    throw new Error(data.error || "Request failed. Please try again.");
+  }
+
   return data;
 }
 function openAuth(mode = "register", role = "customer") {
